@@ -1,0 +1,190 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="ELibrary.Site1" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title></title>
+
+
+    <%--bootstrap css--%>
+    <link href="Bootsrap/css/bootstrap.min.css" rel="stylesheet" />
+    <%--custome css--%>
+    <link href="css/myStyleSheet.css" rel="stylesheet" />
+    <%--datatables css--%>
+    <link href="datatable/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <%--fontawesome css--%>
+    <link href="fontawesome/css/all.css" rel="stylesheet" />
+
+
+    <%--jqury--%>
+    <script src="Bootsrap/js/jquery-3.5.1.slim.min.js"></script>
+    <%--popper js--%>
+    <script src="Bootsrap/js/popper.min.js"></script>
+    <%--bootstrap js--%>
+    <script src="Bootsrap/js/bootstrap.min.js"></script>
+    <%--Data Tables --%>
+    <script src="datatable/js/jquery.dataTables.min.js"></script>
+
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <img src="imgs/books.png" width="30" height="30" />
+                <nav class="navbar-brand ml-3">
+                    <b>E-Baghdad<font color="Brown">Library</font></b><br />
+                    <h6 class="md-6"><font color="gray">For Renting Books</font></h6>
+                </nav>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- mr-auto brack navbar to 2-->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav navbar-primary mr-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link" href="homepage.aspx"><b>Home</b></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link " href="feedback.aspx"><b>Feedback</b></a>
+                        </li>
+                        <li class="nav-item ">
+                            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>
+                                <asp:Timer ID="Timer1" runat="server" OnTick="Timer1_Tick" Interval="1000"></asp:Timer>
+                                <b><asp:Label class="nav-link "   ID="Label1" runat="server" ></asp:Label></b>
+                                 
+                                
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-primary">
+                        <li class="nav-item ">
+                            <asp:LinkButton class="nav-link " ID="LinkButtonViewBooks" runat="server" OnClick="LinkButtonViewBooks_Click"><b>View Books</b></asp:LinkButton>
+                        </li>
+
+                        <li class="nav-item ">
+                            <asp:LinkButton class="nav-link " ID="LinkButtonUserLogin" runat="server" OnClick="LinkButtonUserLogin_Click"><b>User Login</b></asp:LinkButton>
+                        </li>
+                        <li class="nav-item ">
+                            <asp:LinkButton class="nav-link " ID="LinkButtonSignUp" runat="server" OnClick="LinkButtonSignUp_Click"><b>Sign Up</b></asp:LinkButton>
+                        </li>
+                        <li class="nav-item ">
+                            <asp:LinkButton class="nav-link " ID="LinkButtonLogout" runat="server" Visible="False" OnClick="LinkButtonLogout_Click"><b>Logout</b></asp:LinkButton>
+                        </li>
+
+                        <li class="nav-item ">
+                            <asp:LinkButton class="nav-link " ID="LinkButtonHelloUser" runat="server" Visible="False" OnClick="LinkButtonHelloUser_Click"><b>Hello user</b></asp:LinkButton>
+
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Main Content Placeholder -->
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <!-- Main Content Placeholder -->
+
+        <!-- Footer -->
+        <footer>
+            <div id="footer1" class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12  ">
+                        <center>
+                             <p>
+                            <b>
+                                <asp:LinkButton class="footerlinks" ID="LinkButtonAdminLogin" runat="server" OnClick="LinkButtonAdminLogin_Click">Admin Login</asp:LinkButton>
+                                &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButtonAuthorManagement" runat="server" OnClick="LinkButtonAuthorManagement_Click" Visible="False">Author Management</asp:LinkButton>
+                                &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButtonPublisherManagement" runat="server" OnClick="LinkButtonPublisherManagement_Click" Visible="False">Publisher Management</asp:LinkButton>
+                                &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButtonBookInventory" runat="server" OnClick="LinkButtonBookInventory_Click" Visible="False">Book Inventory</asp:LinkButton>
+                                &nbsp;
+                            <asp:LinkButton class="footerlinks" ID="LinkButtonBookIssuing" runat="server" OnClick="LinkButtonBookIssuing_Click" Visible="False">Book Issuing</asp:LinkButton>
+                                &nbsp;
+                             <asp:LinkButton class="footerlinks" ID="LinkButtonMemberManagement" runat="server" OnClick="LinkButtonMemberManagement_Click" Visible="False">Member Management</asp:LinkButton></b>
+                        </p>
+
+                        </center>
+
+                    </div>
+
+                </div>
+            </div>
+            <div id="footer2" class="container-fluid">
+                <div class="row">
+                    <div class="col-3 pt-5 pb-3 pl-5">
+                        <p></p>
+                        <center>
+                        <h4 class="title_fotter">Student of the group<br />
+                            РИМ-101203 к</h4> 
+                        </center>
+                        <h6 class="title_fotter2">Ali Mohammed Z AL-Hraishawi</h6>
+
+
+                    </div>
+                    <div class="col-3 pt-5 pb-3 pl-5">
+                        <p></p>
+                        <center>
+                        <h4 class="title_fotter">Superviser</h4>
+
+                        </center>
+                        <h6 class="title_fotter2">Associate Professor<br />
+                            Medvedev. Maxim. A</h6>
+                        </center>
+                    </div>
+                    <div class="col-3 pt-5 pb-3 pl-5">
+                        <p></p>
+                        <center>
+                        <h4 class="title_fotter">University and City</h4>  
+
+                        </center>
+                        <h6 class="title_fotter2">Ural Federal University<br />
+                            Yekaterinburg</h6>
+
+                    </div>
+                    <div class="col-3 pt-5 pb-3 pl-5">
+                        <p></p>
+                        <center>
+                             <h4 class="title_fotter">The project</h4>  </center>
+                        <h6 class="title_fotter2">Development of web applications for business 2021</h6>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <center>
+                            <p><font color="darkgray"><b>Contact</b> </font></p>
+                             <p><a href="https://www.youtube.com/" target="_blank"><img width="40px" height="40px" src="imgs/youtupe.png" /></a>
+                                <a href="https://www.whatsapp.com/" target="_blank"> <img width="40px" height="40px" src="imgs/whatsup.png" /></a>
+                                <a href="https://twitter.com/" target="_blank"> <img width="40px" height="40px" src="imgs/twiter.png" /></a>
+                                <a href="https://www.facebook.com/" target="_blank"><img width="40px" height="40px" src="imgs/face.png" /></a>
+                                 </p>
+                             <p  > <font color="darkgray"><b>&copy All right Reversed. To E-Baghdad Library 2021</b></font></p>
+                        </center>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </footer>
+        <!-- ./Footer -->
+    </form>
+</body>
+</html>
